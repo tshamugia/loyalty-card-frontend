@@ -1,0 +1,21 @@
+.btns {
+  width: 50rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  .btn {
+    height: 5rem;
+    width: 10rem;
+
+    background-color: var(--color3);
+    color: var(--color5);
+    text-transform: uppercase;
+    font-size: 2rem;
+    border-radius: 0.4rem;
+  }
+
+  .disabled {
+    background-color: var(--color4);
+  }
+}

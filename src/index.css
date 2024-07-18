@@ -1,0 +1,35 @@
+:root {
+  --main-font: Georgia, 'Times New Roman', Times, serif;
+
+  --color1: #001d3b;
+  --color2: #30407f;
+  --color3: #00c568;
+  --color4: #a2f15e;
+  --color5: #ffff8f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color1);
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  color: var(--color4);
+}

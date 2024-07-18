@@ -1,0 +1,30 @@
+.display {
+  width: 50rem;
+  height: 25rem;
+  margin-top: 2rem;
+  background-color: var(--color2);
+  border-radius: 0.4rem;
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0.4rem;
+
+  &__user {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+
+    border-bottom: 1px dashed var(--color4);
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  &__info {
+    display: flex;
+    gap: 3rem;
+    font-size: 3rem;
+    font-family: 'Press Start 2P', cursive;
+  }
+}
