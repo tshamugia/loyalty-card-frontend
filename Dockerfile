@@ -21,5 +21,6 @@ FROM nginx:1.18.0-alpine
 # Copy build artifacts from Stage 1
 COPY --from=build /app/build /usr/share/nginx/html
 
+EXPOSE 3000
 # Start Nginx server (automatically starts on container startup)
 CMD ["nginx", "-g", "daemon off;"]
