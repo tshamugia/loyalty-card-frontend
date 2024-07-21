@@ -28,3 +28,22 @@
   align-items: center;
   gap: 4rem;
 }
+
+.images-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover; /* Ensures images are nicely cropped to fit their containers */
+  border-radius: 8px; /* Optional: Adds rounded corners to images */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow to images */
+}
