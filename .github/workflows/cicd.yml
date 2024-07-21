@@ -1,0 +1,61 @@
+name: Deploy React Loyalty Frontend application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Build docker image
+        run: sudo docker build -t tengoshamugia/loyalty_frontent .
+      - name: Login to docker hub
+        run: sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASS }}
+      - name: Publish image to docker hub
+        run: sudo docker push tengoshamugia/loyalty_frontend:latest
+
+
+
+
+  deploy-1:
+    needs: build
+    runs-on: ["self-hosted", "first"]
+    steps:
+      - name: Stop old container
+        run: sudo docker stop loyalty_frontend || true
+
+      - name: Remove old container
+        run: sudo docker rm loyalty_frontend || true
+
+      - name: Remove unused images
+        run: sudo docker image prune -f
+
+      - name: Pull image from Docker Hub
+        run: sudo docker pull tengoshamugia/loyalty_frontend:latest
+
+      - name: Run new Docker container
+        run: sudo docker run -d -p 3000:3000 --name loyalty_frontend tengoshamugia/loyalty_frontend
+
+
+  # deploy-2:
+  #   needs: build
+  #   runs-on: ["self-hosted", "second"]
+  #   steps:
+  #     - name: Stop old container
+  #       run: sudo docker stop loyalty_frontend || true
+
+  #     - name: Remove old container
+  #       run: sudo docker rm loyalty_frontend || true
+
+  #     - name: Remove unused images
+  #       run: sudo docker image prune -f
+
+  #     - name: Pull image from Docker Hub
+  #       run: sudo docker pull tengoshamugia/loyalty_frontend:latest
+
+  #     - name: Run new Docker container
+  #       run: sudo docker run -d -p 3000:3000 --name loyalty_frontend tengoshamugia/loyalty_frontend
