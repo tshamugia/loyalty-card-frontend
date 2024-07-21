@@ -31,8 +31,8 @@ jobs:
       - name: Remove old container
         run: sudo docker rm loyalty_frontend || true
 
-      - name: Remove unused images
-        run: sudo docker image prune -f
+      # - name: Remove unused images
+      #   run: sudo docker image prune -f
 
       - name: Pull image from Docker Hub
         run: sudo docker pull tengoshamugia/loyalty_frontend:latest
