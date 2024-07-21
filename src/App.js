@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/images/');
+        const response = await fetch('http://20.0.2.39:8000/api/images/');
         if (response.ok) {
           const data = await response.json();
           setImages(data);
