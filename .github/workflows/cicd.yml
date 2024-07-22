@@ -41,21 +41,21 @@ jobs:
         run: sudo docker run -d -p 3000:3000 --name loyalty_frontend tengoshamugia/loyalty_frontend
 
 
-  # deploy-2:
-  #   needs: build
-  #   runs-on: ["self-hosted", "second"]
-  #   steps:
-  #     - name: Stop old container
-  #       run: sudo docker stop loyalty_frontend || true
+  deploy-2:
+    needs: build
+    runs-on: ["self-hosted", "second"]
+    steps:
+      - name: Stop old container
+        run: sudo docker stop loyalty_frontend || true
 
-  #     - name: Remove old container
-  #       run: sudo docker rm loyalty_frontend || true
+      - name: Remove old container
+        run: sudo docker rm loyalty_frontend || true
 
-  #     - name: Remove unused images
-  #       run: sudo docker image prune -f
+      - name: Remove unused images
+        run: sudo docker image prune -f
 
-  #     - name: Pull image from Docker Hub
-  #       run: sudo docker pull tengoshamugia/loyalty_frontend:latest
+      - name: Pull image from Docker Hub
+        run: sudo docker pull tengoshamugia/loyalty_frontend:latest
 
-  #     - name: Run new Docker container
-  #       run: sudo docker run -d -p 3000:3000 --name loyalty_frontend tengoshamugia/loyalty_frontend
+      - name: Run new Docker container
+        run: sudo docker run -d -p 3000:3000 --name loyalty_frontend tengoshamugia/loyalty_frontend
