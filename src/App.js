@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('http://backend:8000/api/images/', {
+        const response = await fetch('http://172.19.0.2:8000/api/images/', {
           method: 'GET', // or 'POST' if you're sending data
           headers: {
             'Content-Type': 'application/json', // Specify the content type
