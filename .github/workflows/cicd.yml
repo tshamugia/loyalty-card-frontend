@@ -26,13 +26,16 @@ jobs:
     runs-on: ["self-hosted", "first"]
     steps:
       - name: Stop old container
-        run: sudo docker stop loyalty_frontend || true
+        run: sudo docker stop frontend || true
 
       - name: Remove old container
-        run: sudo docker rm loyalty_frontend || true
+        run: sudo docker rm frontend || true
 
       - name: Remove unused images
-        run: sudo docker image prune -f
+        run: sudo docker image prune -f || true
+      
+      - name: Remove unused containers
+        run: sudo docker container prune -f || true
 
       - name: Pull image from Docker Hub
         run: sudo docker pull tengoshamugia/loyalty_frontend:latest
@@ -51,13 +54,16 @@ jobs:
     runs-on: ["self-hosted", "second"]
     steps:
       - name: Stop old container
-        run: sudo docker stop loyalty_frontend || true
+        run: sudo docker stop frontend || true
 
       - name: Remove old container
-        run: sudo docker rm loyalty_frontend || true
+        run: sudo docker rm frontend || true
 
       - name: Remove unused images
-        run: sudo docker image prune -f
+        run: sudo docker image prune -f || true
+
+      - name: Remove unused containers
+        run: sudo docker container prune -f || true
 
       - name: Pull image from Docker Hub
         run: sudo docker pull tengoshamugia/loyalty_frontend:latest
