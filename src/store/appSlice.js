@@ -4,7 +4,7 @@ export const getInfoFromDB = createAsyncThunk(
   'app/getInfoFromDB',
   async function (_, { rejectWithValue }) {
     try {
-      const response = await fetch(`http://loyalty_backend:8000/api/users/`);
+      const response = await fetch(`http://backend:8000/api/users/`);
       if (response.ok) {
         const data = await response.json();
         return data;

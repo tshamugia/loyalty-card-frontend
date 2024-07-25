@@ -43,7 +43,7 @@ jobs:
           sudo docker network create loyalty_network
 
       - name: Run new Docker container
-        run: sudo docker run -d -p 3000:3000 --network loyalty_network --name loyalty_frontend tengoshamugia/loyalty_frontend
+        run: sudo docker run -d -p 3000:3000 --network loyalty_network --name frontend tengoshamugia/loyalty_frontend
 
 
   deploy-2:
@@ -68,4 +68,4 @@ jobs:
           sudo docker network create loyalty_network
 
       - name: Run new Docker container
-        run: sudo docker run -d -p 3000:3000 --network loyalty_network --name loyalty_frontend tengoshamugia/loyalty_frontend
+        run: sudo docker run -d -p 3000:3000 --network loyalty_network --name frontend tengoshamugia/loyalty_frontend
