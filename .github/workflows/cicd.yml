@@ -56,10 +56,10 @@ jobs:
     steps:
       - name: Deploy using docker compose
         run:
-          docker-compose down
-          docker-compose pull
-          docker-compose up -d --build
-          
+          docker-compose down \
+          && docker-compose pull \
+          && docker-compose up -d --build
+
       # - name: Stop old container
       #   run: sudo docker stop frontend || true
 
