@@ -54,20 +54,26 @@ jobs:
     needs: build
     runs-on: ["self-hosted", "second"]
     steps:
-      - name: Stop old container
-        run: sudo docker stop frontend || true
+      - name: Deploy using docker compose
+        run:
+          docker-compose down
+          docker-compose pull
+          docker-compose up -d --build
+          
+      # - name: Stop old container
+      #   run: sudo docker stop frontend || true
 
-      - name: Remove old container
-        run: sudo docker rm frontend || true
+      # - name: Remove old container
+      #   run: sudo docker rm frontend || true
 
-      - name: Remove unused images
-        run: sudo docker image prune -f || true
+      # - name: Remove unused images
+      #   run: sudo docker image prune -f || true
 
-      - name: Remove unused containers
-        run: sudo docker container prune -f || true
+      # - name: Remove unused containers
+      #   run: sudo docker container prune -f || true
 
-      - name: Pull image from Docker Hub
-        run: sudo docker pull tengoshamugia/loyalty_frontend:latest
+      # - name: Pull image from Docker Hub
+      #   run: sudo docker pull tengoshamugia/loyalty_frontend:latest
 
-      - name: Run new Docker container
-        run: sudo docker run -d -p 3000:3000  --name frontend tengoshamugia/loyalty_frontend
+      # - name: Run new Docker container
+      #   run: sudo docker run -d -p 3000:3000  --name frontend tengoshamugia/loyalty_frontend
