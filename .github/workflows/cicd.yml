@@ -50,15 +50,15 @@ jobs:
       #   run: sudo docker run -d -p 3000:3000  --name frontend tengoshamugia/loyalty_frontend
 
 
-  deploy-2:
-    needs: build
-    runs-on: ["self-hosted", "second"]
-    steps:
-      - name: Deploy using docker compose
-        run:
-          docker-compose down \
-          && docker-compose pull \
-          && docker-compose up -d --build
+  # deploy-2:
+  #   needs: build
+  #   runs-on: ["self-hosted", "second"]
+  #   steps:
+  #     - name: Deploy using docker compose
+  #       run:
+  #         sudo docker compose down \
+  #         sudo docker compose pull \
+  #         && docker compose up -d --build
 
       # - name: Stop old container
       #   run: sudo docker stop frontend || true
