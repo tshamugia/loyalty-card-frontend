@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +19,7 @@ jobs:
       - name: Build docker image
         run: sudo docker build -t tengoshamugia/loyalty_frontend .
       - name: Login to docker hub
-        run: sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASS }}
+        run: sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASS
       - name: Publish image to docker hub
         run: sudo docker push tengoshamugia/loyalty_frontend:latest
 
@@ -40,10 +45,6 @@ jobs:
   #     - name: Pull image from Docker Hub
   #       run: sudo docker pull tengoshamugia/loyalty_frontend:latest
       
-      # - name: Ensure Docker network exists
-      #   run: |
-      #     sudo docker network inspect loyalty_network >/dev/null 2>&1 || \
-      #     sudo docker network create loyalty_network
 
       # - name: Run new Docker container
       #   run: sudo docker run -d -p 3000:3000  --name frontend tengoshamugia/loyalty_frontend
@@ -67,11 +68,6 @@ jobs:
 
       - name: Pull image from Docker Hub
         run: sudo docker pull tengoshamugia/loyalty_frontend:latest
-      
-      # - name: Ensure Docker network exists
-      #   run: |
-      #     sudo docker network inspect loyalty_network >/dev/null 2>&1 || \
-      #     sudo docker network create loyalty_network
 
       - name: Run new Docker container
         run: sudo docker run -d -p 3000:3000  --name frontend tengoshamugia/loyalty_frontend
