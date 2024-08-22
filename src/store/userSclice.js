@@ -5,7 +5,7 @@ export const getUserInfo = createAsyncThunk(
   async function (cardID, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `http://backend:8000/api/users/${cardID}/`,
+        `http://3.121.216.13:8080/api/users/${cardID}/`,
         {
           method: 'GET',
           headers: {
@@ -34,7 +34,7 @@ export const updateUserInfo = createAsyncThunk(
 
     try {
       const response = await fetch(
-        `http://backend:8000/api/users/${userID}/`,
+        `http://3.121.216.13:8080/api/users/${userID}/`,
         {
           method: 'PATCH',
           headers: {
@@ -66,7 +66,7 @@ export const addBonus = createAsyncThunk(
 
     try {
       const response = await fetch(
-        `http://backend:8000/api/users/${userID}/`,
+        `http://3.121.216.13:8080/api/users/${userID}/`,
         {
           method: 'PATCH',
           headers: {
