@@ -7,7 +7,7 @@ import CardInput from './components/cardInput/cardInput';
 import Cards from './components/cards/cards';
 import Display from './components/display/display';
 import { getInfoFromDB } from './store/appSlice';
-
+import {BASE_URL} from './config';
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('http://3.121.216.13:8080/api/images/', {
+        const response = await fetch(`${BASE_URL}api/images/`, {
           method: 'GET', // or 'POST' if you're sending data
           headers: {
             'Content-Type': 'application/json', // Specify the content type

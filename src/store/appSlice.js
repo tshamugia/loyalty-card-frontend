@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {BASE_URL} from '../config';
 
 export const getInfoFromDB = createAsyncThunk(
   'app/getInfoFromDB',
   async function (_, { rejectWithValue }) {
     try {
-      const response = await fetch(`http://3.121.216.13:8080/api/users/`);
+      const response = await fetch(`${BASE_URL}api/users/`);
       if (response.ok) {
         const data = await response.json();
         return data;

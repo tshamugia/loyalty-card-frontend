@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
+import { BASE_URL}  from '../config';
 export const getUserInfo = createAsyncThunk(
   'user/getUserInfo',
   async function (cardID, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `http://3.121.216.13:8080/api/users/${cardID}/`,
+        `${BASE_URL}api/users/${cardID}/`,
         {
           method: 'GET',
           headers: {
@@ -34,7 +34,7 @@ export const updateUserInfo = createAsyncThunk(
 
     try {
       const response = await fetch(
-        `http://3.121.216.13:8080/api/users/${userID}/`,
+        `${BASE_URL}api/users/${userID}/`,
         {
           method: 'PATCH',
           headers: {
@@ -66,7 +66,7 @@ export const addBonus = createAsyncThunk(
 
     try {
       const response = await fetch(
-        `http://3.121.216.13:8080/api/users/${userID}/`,
+        `${BASE_URL}api/users/${userID}/`,
         {
           method: 'PATCH',
           headers: {
