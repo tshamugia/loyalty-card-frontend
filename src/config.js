@@ -1,3 +1,3 @@
-const BASE_URL = 'https://tengoshamugia:8080/';
+const BASE_URL = 'https://tengoshamugia.com:8080/';
 
 export {BASE_URL}
