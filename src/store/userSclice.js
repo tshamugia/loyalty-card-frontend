@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL}  from '../config';
+
+
+
 export const getUserInfo = createAsyncThunk(
   'user/getUserInfo',
   async function (cardID, { rejectWithValue }) {
